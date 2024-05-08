@@ -71,4 +71,9 @@ app.get("/health-checkup", userMiddleware, kidneyMiddleware, function(req,res){
     // do something
 });
 
+app.use(express.json());
+app.post("/health-checkup", userMiddleware, function(req,res){
+    // do something
+});
+
 app.listen(3000); 
