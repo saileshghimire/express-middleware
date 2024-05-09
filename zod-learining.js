@@ -2,7 +2,12 @@ const express = require("express");
 const zod = require("zod");
 const app = express();
 
-const schema = zod.array(zod.number());
+const schema = zod.object({
+    email: zod.string(),
+    password: zod.string(),
+    country: zod.literal("India").or(zod.literal("Nepal")),
+    kidneys: zod.array(zod.number())
+});
 
 app.use(express.json());
 app.post ("/health-checkup", function(req,res){
