@@ -80,7 +80,12 @@ app.post ("/health-checkup", function(req,res){
 });
 
 
-
+// // global catches
+app.use(function(err,req,res,next){
+    res.json({
+        msg:"somethings is up with our server."
+    });
+});
 
 
 app.listen(3000); 
