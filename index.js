@@ -47,7 +47,7 @@ function userMiddleware(req,res,next){
     const password = req.header.password;
     if (username != "sailesh" || password != "pass"){
         res.status(403).json({
-            msg:"invalid input"
+            msg:"invalid input.."
         });
     }
     else{
@@ -59,7 +59,7 @@ function kidneyMiddleware(req,res, next){
     const kidneyId = req.query.kidneyId;
     if (kidneyId !=1 && kidneyId !=2){
         res.status(403).json({
-            msg:"invalid input"
+            msg:"invalid input...."
         });  
     }
     else{
@@ -72,8 +72,15 @@ app.get("/health-checkup", userMiddleware, kidneyMiddleware, function(req,res){
 });
 
 app.use(express.json());
-app.post("/health-checkup", userMiddleware, function(req,res){
-    // do something
+app.post ("/health-checkup", function(req,res){
+    const kidneys = req.body.kidneys;
+    const kidneyLenght = kidneys.length;
+
+    res.send("you have "+ kidneyLenght + " kidneys");
 });
+
+
+
+
 
 app.listen(3000); 
