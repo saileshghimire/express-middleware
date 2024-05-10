@@ -7,9 +7,21 @@ function validateInput(obj){
     });
     const response = schema.safeParse(obj);
     console.log(response);
+    // output is { success: false, error: [Getter] } if error
+
+    // const response = schema.parse(obj);
+    // console.log(response);
+    // while error occurs output is errors: [
+    // {
+    //     validation: 'email',
+    //     code: 'invalid_string',
+    //     message: 'Invalid email',
+    //     path: [ 'email' ]
+    //   }
+    // ]
 }
 
 validateInput({
-    email:"sailesh@example.com",
+    email:"saieshexample.com",
     password:"121345"
 });
