@@ -30,7 +30,7 @@ function userExists(username,password){
     }
     return userExists;
 };
-
+app.use(express.json());
 app.post("/signin", function(req,res){
     const username = req.body.username;
     const password = req.body.password;
@@ -45,6 +45,14 @@ app.post("/signin", function(req,res){
         token
     });
 });
+
+// app.get("/user", function(req,res){
+//     const token = req.header.token;
+//     try{
+//         const decoded = jwt.verify(token, jwtpassword);
+//         const username = decoded.username;
+//     }
+// });
 
 
 
