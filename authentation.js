@@ -46,13 +46,21 @@ app.post("/signin", function(req,res){
     });
 });
 
-// app.get("/user", function(req,res){
-//     const token = req.header.token;
-//     try{
-//         const decoded = jwt.verify(token, jwtpassword);
-//         const username = decoded.username;
-//     }
-// });
+app.get("/user", function(req,res){
+    const token = req.header.token;
+    try{
+        const decoded = jwt.verify(token, jwtpassword);
+        const username = decoded.username;
+        return res.json({
+            users:ALL_USER
+        });
+    }
+    catch(err){
+        return res.status(403).json({
+            msg:"Invalid token"
+        });
+    }
+});
 
 
 
