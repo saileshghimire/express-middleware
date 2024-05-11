@@ -47,11 +47,11 @@ app.post("/signin", function(req,res){
 });
 
 app.get("/user", function(req,res){
-    const token = req.header.token;
+    const token = req.headers.token;
     try{
         const decoded = jwt.verify(token, jwtpassword);
         const username = decoded.username;
-        return res.json({
+        res.json({
             users:ALL_USER
         });
     }
