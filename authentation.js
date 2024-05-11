@@ -52,7 +52,13 @@ app.get("/user", function(req,res){
         const decoded = jwt.verify(token, jwtpassword);
         const username = decoded.username;
         res.json({
-            users:ALL_USER
+            users:ALL_USER.filter(function(value){
+                if(value.username == username){
+                    return false;
+                } else {
+                    return true;
+                }
+            })
         });
     }
     catch(err){
