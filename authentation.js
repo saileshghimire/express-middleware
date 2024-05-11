@@ -6,7 +6,7 @@ const app = express();
 const ALL_USER = [
     {
         username:"sailesh@example.com",
-        password:"123456",
+        password:"1234",
         name:"sailesh ghimire"
     },
     {
