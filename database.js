@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-
 mongoose.connect(
     'mongodb+srv://sailesh:1234@cluster0.vm8tuzu.mongodb.net/userappnew',
 );
